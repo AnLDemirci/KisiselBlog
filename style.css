@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Menü Yapımı */
+.container .sections{
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.container .sections.sections1{
+    background-image: url(assets/kisisel-background.jpg);
+    background-size: cover;
+    clip-path: polygon(0 0, 40% 0, 20% 100%, 0 100%);
+}
+
+.container .sections.sections2{
+    background-image: url(assets/yazılım-background.jpg);
+    background-size: cover;
+    clip-path: polygon(40% 0, 80% 0, 60% 100%, 20% 100%);
+}
+
+.container .sections.sections3{
+    background-image: url(assets/hobi-background.jpg);
+    background-size: cover;
+    clip-path: polygon(80% 0, 100% 0, 100% 100%, 60% 100%);
+}
+
+.container:hover .sections{
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+}
+
+.container .sections:hover{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Menü Yapımı Bitimi */
+
+
+
+
+
+/* İcerik yapımı */
+
+.container .sections .icerik{
+    position: absolute;
+    bottom: -100%;/*-100% yapılcacak*/
+    left: 0;
+    width: 70%;
+    padding: 20px;
+    color: #fff;
+    background: linear-gradient(45deg,rgb(19, 23, 32), #121212);
+    opacity: 0;/*0 yapılcacak*/
+    transition: 0.5s;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+
+.container .sections:hover .icerik{
+    bottom: 0;
+    opacity: 1;
+}
+
+.container .sections .icerik-container::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    background: linear-gradient(45deg,rgb(1, 13, 37), #121212);
+}
+
+.container .sections .icerik-container::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 70%;
+    background: linear-gradient(45deg,rgb(1, 13, 37), #121212);
+    filter: blur(30px);
+}
+
+.container .sections .icerik-container span{
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/*Logo yapımı*/
+
+
+.logo-container .logo-text{
+    z-index: 5;
+    position: relative;
+    font-size: 14vw;
+    color: linear-gradient(45deg,rgb(100, 100, 100), #121212);
+    -webkit-text-stroke: 0.3vw linear-gradient(45deg,rgb(100, 100, 100), #121212);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.logo-container .logo-text::before{
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01fe87;
+    -webkit-text-stroke: 0vw linear-gradient(45deg,rgb(19, 23, 32), #121212);
+    border-right: 2px solid #01fe87;
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate{
+    0%,10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
